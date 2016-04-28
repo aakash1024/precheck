@@ -3,8 +3,8 @@ class precheck {
   include precheck::net_35
   include precheck::net_45
   include precheck::msmq
-  include precheck::oadc_install
-  include precheck::oadc_config
+  # include precheck::oadc_install
+  # include precheck::oadc_config
 }
 # class ibm_precheck {
 # file { "C:\\temp\\bin\\sxs\\": ensure => directory, }

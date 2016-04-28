@@ -1,5 +1,5 @@
 class precheck::net_45 {
-  windowsfeature { 'Net-Framework-Core':
+  windowsfeature { 'NET-Framework-45-Features':
     ensure             => 'present',
     installsubfeatures => true,
     restart            => false,

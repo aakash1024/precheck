@@ -1,8 +1,16 @@
 class precheck::oadc_config {
-  exec { 'configure_oadc':
-    path      => $::path,
-    command   => 'cmd.exe /c "c:\\temp\\bin\\ODAC112030Xcopy_x64\\configure.bat"',
-    provider  => windows,
+  require precheck::iis_install
+  require precheck::net_45
+  require precheck::net_35
+  require precheck::msmq
+  require precheck::oadc_install
+
+  exec { 'configure':
+    command   => '
+PUSHD c:\\oracle
+cmd.exe /c configure.bat all myhome
+',
+    provider  => powershell,
     logoutput => true,
   }
 

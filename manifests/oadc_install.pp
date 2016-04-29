@@ -5,11 +5,11 @@ class precheck::oadc_install {
   require precheck::msmq
 
   exec { 'install oadc':
-    command  => '
+    command   => '
 PUSHD c:\\temp\\bin\\ODAC112030Xcopy_x64
 cmd.exe /c install.bat all c:\oracle myhome',
-    provider => powershell,
-  # logoutput => true,
+    provider  => powershell,
+    logoutput => true,
   }
 
 }
